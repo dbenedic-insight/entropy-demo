@@ -30,7 +30,7 @@ In this demo, an Azure Storage Account is deployed using valid parameters with T
 Depending on which version of the AzureRM provider was used, the user may get a deprecation notice about the [enable_https_traffic_only](https://github.com/dbenedic-insight/entropy-demo/blob/main/terraform-azurerm-storage-account/main.tf#L9) property of the azurerm_storage_account resource. This deprecation notice is not guaranteed and may not be surfaced in an automated CI/CD workflow, so this could be unseen future tech debt.
 ![Storage Account property deprecation warning](.img/deprecation-warning.png)
 
-When this `enable_https_traffic_only` property is left unchanged when the AzureRM provider is updated to 4.x, then this deprecation warning becomes an error.
+When this `enable_https_traffic_only` property is left unchanged and the AzureRM provider is updated to 4.x, then this deprecation warning becomes an error.
 ![Storage Account property error](.img/property-error.png)
 
 This is a synthetic demo, with a controlled provider upgrate (AzureRM 3.x -> 4.x), but this situation is very common in large Terraform codebases and can be hard to trace if teams have not established good versioning and testing practices around their code.
