@@ -19,13 +19,13 @@ Simplified repository to illustrate the challenges with maintaining an automatio
 1. Apply Terraform to create storage account using AzureRM provider v3.x.x `terraform apply -auto-approve`
 1. Upgrade AzureRM provider to 4.x.x by uncommenting [terraform-azurerm-storage-account/versions.tf line 6](https://github.com/dbenedic-insight/entropy-demo/blob/main/terraform-azurerm-storage-account/versions.tf#L6) and commenting out version 3.x.x
 1. Run `terraform init -upgrade` to download the 4.x.x provider
-1. Run a second Terraform Apply and note the error caused by the storage account property that was deprecated
+1. Run a second `terraform apply -auto-approve` and note the error caused by the storage account property that was deprecated
 ### Teardown
 1. Run `terraform destroy -auto-approve`
 1. Downgrade AzureRM provider back to 3.x.x
-1. Recursively remove the .terraform directory from the top-level directory of this repo
+1. Recursively remove the .terraform directory
 ## Explanation of Entropy
-In this demo, an Azure Storage Account is deployed using valid parameters using Terraform and the AzureRM provider version 3.x.
+In this demo, an Azure Storage Account is deployed using valid parameters with Terraform and the AzureRM provider version 3.x.
  
 Depending on which version of the AzureRM provider was used, the user may get a deprecation notice about the [enable_https_traffic_only](https://github.com/dbenedic-insight/entropy-demo/blob/main/terraform-azurerm-storage-account/main.tf#L9) property of the azurerm_storage_account resource. This deprecation notice is not guaranteed and may not be surfaced in an automated CI/CD workflow, so this could be unseen future tech debt.
 ![Storage Account property deprecation warning](.img/deprecation-warning.png)
