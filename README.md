@@ -38,3 +38,7 @@ This is a synthetic demo, with a controlled provider upgrate (AzureRM 3.x -> 4.x
 This particular AzureRM provider is well documented and maintained, but that is not always this case as Terraform providers are maintained by a variety of developers with different versioning, deprecation, and release processes. This exacerbates the problem in larger Terraform codebases.
 
 > NOTE: the provider publisher [provides an upgrade guide for major releases](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#azurerm_storage_account), which is essential to review before provider upgrades
+
+With [frequent releases of this provider](https://github.com/hashicorp/terraform-provider-azurerm/releases) (see screenshot), keeping up with entropy in a large Terraform codebase (especially with multiple providers) can become taxing on a team's time.
+
+![AzureRM provider releases](.img/provider-releases.png)
