@@ -17,7 +17,7 @@ Simplified repository to illustrate the challenges with maintaining an automatio
 ## Demo
 1. Init Terraform from the top-level directory of this repo `terraform init -upgrade`
 1. Apply Terraform to create storage account using AzureRM provider v3.x.x `terraform apply -auto-approve`
-1. Upgrade AzureRM provider to 4.x.x by uncommenting versions.tf line 6 and commenting out version 3.x.x
+1. Upgrade AzureRM provider to 4.x.x by uncommenting [terraform-azurerm-storage-account/versions.tf line 6](https://github.com/dbenedic-insight/entropy-demo/blob/main/terraform-azurerm-storage-account/versions.tf#L6) and commenting out version 3.x.x
 1. Run `terraform init -upgrade` to download the 4.x.x provider
 1. Run a second Terraform Apply and note the error caused by the storage account property that was deprecated
 ### Teardown
